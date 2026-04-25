@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Blog</title>
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        margin-left: 20px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    /* 
+       Styled as circular navigation buttons.
+       Transition allows smooth hover animation instead of abrupt change.
+    */
+    .circle {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        border-radius: 50%;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        margin: 10px;
+        text-decoration: none;
+        transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* Distinct colors improve quick visual recognition */
+    .one { background-color: tomato; }
+    .two { background-color: steelblue; }
+    .three { background-color: limegreen; }
+    .four { background-color: orange; }
+
+    /* 
+       Hover effect makes UI feel interactive.
+       Slight scaling gives a "button press" feel.
+    */
+    .circle:hover {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    .section {
+        margin-top: 40px;
+        padding: 15px;
+        border-top: 2px solid #ccc;
+    }
+
+    /* 
+       Headings styled differently from content to create hierarchy.
+       Helps users scan continents quickly.
+    */
+    h2 {
+        color: darkblue;
+    }
+
+    /* 
+       Countries (ordered list items) stand out more than cities.
+    */
+    ol > li {
+        font-weight: bold;
+        color: darkred;
+        margin-top: 10px;
+    }
+
+    /* 
+       Cities are lighter and slightly indented to show hierarchy.
+    */
+    ul li {
+        font-weight: normal;
+        color: #444;
+        margin-left: 15px;
+    }
+    </style>
+</head>
+
+<body>
+
+<h1>Travel Blog</h1>
+
+<div class="container">
+    <!-- 
+        These links simulate "interactive blocks".
+        Instead of JavaScript, we use anchor links to jump to sections.
+        This keeps the solution simple and accessible.
+    -->
+    <a href="#europe" class="circle one">1</a>
+    <a href="#asia" class="circle two">2</a>
+    <a href="#america" class="circle three">3</a>
+    <a href="#africa" class="circle four">4</a>
+</div>
+
+<!-- 
+    Each section represents a destination group.
+    IDs are used as anchor targets for navigation above.
+-->
+
+<!-- Europe -->
+<div id="europe" class="section">
+    <h2>Destination 1: Europe</h2>
+
+    <!-- 
+        Ordered list = countries (structured ranking/grouping)
+        Unordered list = cities (sub-items without ranking)
+    -->
+    <ol>
+        <li>France
+            <ul>
+                <li>Paris</li>
+                <li>Nice</li>
+                <li>Marseille</li>
+            </ul>
+        </li>
+
+        <li>Italy
+            <ul>
+                <li>Rome</li>
+                <li>Florence</li>
+                <li>Venice</li>
+            </ul>
+        </li>
+
+        <li>Greece
+            <ul>
+                <li>Athens</li>
+                <li>Thessaloniki</li>
+                <li>Santorini</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<!-- Asia -->
+<div id="asia" class="section">
+    <h2>Destination 2: Asia</h2>
+
+    <!-- Same structure reused for consistency across continents -->
+    <ol>
+        <li>Japan
+            <ul>
+                <li>Tokyo</li>
+                <li>Kyoto</li>
+                <li>Osaka</li>
+            </ul>
+        </li>
+
+        <li>China
+            <ul>
+                <li>Beijing</li>
+                <li>Shanghai</li>
+                <li>Xi'an</li>
+            </ul>
+        </li>
+
+        <li>India
+            <ul>
+                <li>New Delhi</li>
+                <li>Mumbai</li>
+                <li>Jaipur</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<!-- America -->
+<div id="america" class="section">
+    <h2>Destination 3: America</h2>
+
+    <ol>
+        <li>USA
+            <ul>
+                <li>New York City</li>
+                <li>Los Angeles</li>
+                <li>Chicago</li>
+            </ul>
+        </li>
+
+        <li>Brazil
+            <ul>
+                <li>Rio de Janeiro</li>
+                <li>São Paulo</li>
+                <li>Salvador</li>
+            </ul>
+        </li>
+
+        <li>Canada
+            <ul>
+                <li>Toronto</li>
+                <li>Vancouver</li>
+                <li>Montreal</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<!-- Africa -->
+<div id="africa" class="section">
+    <h2>Destination 4: Africa</h2>
+
+    <ol>
+        <li>South Africa
+            <ul>
+                <li>Cape Town</li>
+                <li>Johannesburg</li>
+                <li>Durban</li>
+            </ul>
+        </li>
+
+        <li>Egypt
+            <ul>
+                <li>Cairo</li>
+                <li>Luxor</li>
+                <li>Sharm El Sheikh</li>
+            </ul>
+        </li>
+
+        <li>Morocco
+            <ul>
+                <li>Marrakech</li>
+                <li>Casablanca</li>
+                <li>Fez</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Stories</title>
+    <style>
+    body {
+        font-family: Arial;
+        padding: 20px;
+    }
+
+    /* 
+       Table styled to be visually structured and easy to read.
+    */
+    table {
+        width: 80%;
+        border-collapse: collapse;
+        margin: auto;
+    }
+
+    /* 
+       Bold headers + background color improves readability
+       and separates header from data.
+    */
+    th {
+        background-color: #4CAF50;
+        color: white;
+        font-weight: bold;
+        padding: 12px;
+    }
+
+    /* 
+       Padding improves spacing so content doesn’t feel cramped.
+    */
+    td {
+        padding: 12px;
+        border: 1px solid #ddd;
+    }
+
+    /* 
+       Alternating row colors improve readability,
+       especially for larger tables.
+    */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+
+    /* 
+       Adds a hover highlight so users can track rows easily.
+    */
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    /* 
+       Images are interactive elements.
+       Transition makes hover smooth instead of abrupt.
+    */
+    img {
+        width: 200px;
+        height: auto;
+        transition: opacity 0.3s, transform 0.3s;
+    }
+
+    /* 
+       Opacity change signals interactivity.
+       Slight zoom adds a modern UI feel.
+    */
+    img:hover {
+        opacity: 0.6;
+        transform: scale(1.05);
+    }
+
+    .info {
+        margin-top: 80px;
+        padding: 20px;
+        border-top: 2px solid #000;
+    }
+</style>
+</head>
+
+<body>
+
+<h1 align="center">Travel Stories</h1>
+
+<table>
+    <tr>
+        <th>Destination</th>
+        <th>Attraction</th>
+    </tr>
+
+    <tr>
+        <td>Paris</td>
+        <td>
+            <a href="#eiffel">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg">
+            </a>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Rome</td>
+        <td>
+            <a href="#colosseum">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/1280px-Colosseo_2020.jpg">
+            </a>
+        </td>
+    </tr>
+
+    <tr>
+        <td>New York</td>
+        <td>
+            <a href="#liberty">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Statue_of_Liberty_7.jpg">
+            </a>
+        </td>
+    </tr>
+</table>
+
+<!-- Info Sections -->
+<div id="eiffel" class="info">
+    <h2>Eiffel Tower</h2>
+    <p>The Eiffel Tower is a famous landmark in Paris, France.</p>
+</div>
+
+<div id="colosseum" class="info">
+    <h2>Colosseum</h2>
+    <p>The Colosseum is an ancient amphitheater in Rome, Italy.</p>
+</div>
+
+<div id="liberty" class="info">
+    <h2>Statue of Liberty</h2>
+    <p>The Statue of Liberty is a symbol of freedom in New York, USA.</p>
+</div>
+
+</body>
+</html>
