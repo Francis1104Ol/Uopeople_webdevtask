@@ -1,0 +1,205 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .container{
+        background: white;
+        padding: 25px;
+        width: 700px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    }
+
+    h1{
+        margin-bottom: 20px;
+    }
+
+    .task-input{
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    #taskInput{
+        flex: 1;
+        padding: 12px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    #addTaskBtn{
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #addTaskBtn:hover{
+        background-color: #45a049;
+    }
+
+    ul{
+        list-style: none;
+        padding: 0;
+    }
+
+    li{
+        margin-bottom: 15px;
+    }
+
+    .task-row{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .task-text{
+        font-size: 20px;
+    }
+
+    .completed{
+        text-decoration: line-through;
+        color: gray;
+    }
+
+    .edit-btn,
+    .remove-btn{
+        border: none;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .edit-btn{
+        background-color: #f44336;
+    }
+
+    .remove-btn{
+        background-color: #f44336;
+    }
+
+    .edit-btn:hover,
+    .remove-btn:hover{
+        opacity: 0.8;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>To-Do List</h1>
+
+    <div class="task-input">
+        <input type="text" id="taskInput" placeholder="Enter new task">
+        <button id="addTaskBtn">Add Task</button>
+    </div>
+
+    <ul id="taskList"></ul>
+</div>
+
+<script>
+
+const addTaskBtn = document.getElementById("addTaskBtn");
+const taskInput = document.getElementById("taskInput");
+const taskList = document.getElementById("taskList");
+
+
+// ADD TASK
+addTaskBtn.addEventListener("click", function(){
+
+    const taskText = taskInput.value.trim();
+
+    if(taskText === ""){
+        alert("Please enter a task.");
+        return;
+    }
+
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+        <div class="task-row">
+            <input type="checkbox" class="complete-checkbox">
+
+            <span class="task-text">${taskText}</span>
+
+            <button class="edit-btn">Edit</button>
+
+            <button class="remove-btn">Remove</button>
+        </div>
+    `;
+
+    taskList.appendChild(li);
+
+    taskInput.value = "";
+});
+
+
+// EVENT DELEGATION
+taskList.addEventListener("click", function(event){
+
+    // REMOVE TASK
+    if(event.target.classList.contains("remove-btn")){
+
+        const li = event.target.closest("li");
+        li.remove();
+    }
+
+
+    // EDIT TASK
+    if(event.target.classList.contains("edit-btn")){
+
+        const taskTextElement =
+            event.target.parentElement.querySelector(".task-text");
+
+        const currentText = taskTextElement.textContent;
+
+        const updatedText = prompt("Edit task:", currentText);
+
+        if(updatedText !== null && updatedText.trim() !== ""){
+            taskTextElement.textContent = updatedText;
+        }
+    }
+});
+
+
+// COMPLETE / INCOMPLETE TASK
+taskList.addEventListener("change", function(event){
+
+    if(event.target.classList.contains("complete-checkbox")){
+
+        const taskText =
+            event.target.parentElement.querySelector(".task-text");
+
+        if(event.target.checked){
+            taskText.classList.add("completed");
+        }
+        else{
+            taskText.classList.remove("completed");
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>
